@@ -10,4 +10,5 @@ class StringTest {
         val actual = "abc".replace("b", "d")
         Assertions.assertThat(actual).isEqualTo("adc")
     }
+
 }
