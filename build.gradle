@@ -1,5 +1,13 @@
-apply plugin: 'java'
-apply plugin: 'eclipse'
+
+plugins {
+    id 'org.springframework.boot' version '2.6.8'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.6.21'
+    id 'org.jetbrains.kotlin.plugin.spring' version '1.6.21'
+    id "org.jetbrains.kotlin.plugin.allopen" version "1.6.21"
+    id "org.jetbrains.kotlin.kapt" version "1.6.21"
+}
 
 group = 'camp.nextstep'
 version = '1.0.0'
@@ -10,6 +18,9 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+    implementation 'org.jetbrains.kotlin:kotlin-reflect:1.6.21'
+
     testImplementation "org.junit.jupiter:junit-jupiter:5.7.2"
     testImplementation "org.assertj:assertj-core:3.19.0"
 }
@@ -17,3 +28,14 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+}
+
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = "11"
+    } }
